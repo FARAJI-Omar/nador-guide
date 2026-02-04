@@ -4,17 +4,7 @@ import { MapPin, User, Lock, Loader2, AlertCircle, ArrowLeft } from 'lucide-reac
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { loginUser, clearError, selectAuth } from '../../features/auth/authSlice';
 
-/**
- * Admin Login Page - Modern & Minimalist Design
- * Redux integrated for auth state management
- * 
- * Features:
- * - Login form with icons
- * - Redux async thunk for authentication
- * - Store JWT in localStorage
- * - Redirect to intended page after login
- * - Error handling with Redux state
- */
+
 const AdminLoginPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
@@ -26,14 +16,12 @@ const AdminLoginPage = () => {
 
   const from = (location.state as any)?.from?.pathname || '/admin/dashboard';
 
-  // Clear error on unmount
   useEffect(() => {
     return () => {
       dispatch(clearError());
     };
   }, [dispatch]);
 
-  // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
       navigate(from, { replace: true });
@@ -51,7 +39,7 @@ const AdminLoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-slate-50 px-4 py-8">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-50 via-blue-50 to-slate-50 px-4 py-8">
       <div className="w-full max-w-[40%]">
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-xl p-10 border border-gray-100">
@@ -64,14 +52,10 @@ const AdminLoginPage = () => {
             <p className="text-slate-600">Sign in to manage Nador Guide</p>
           </div>
 
-          {/* Test Credentials Info */}
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
-            <p className="text-sm text-blue-900 font-semibold mb-2">Test Credentials:</p>
-            <div className="text-sm text-blue-800 space-y-1">
-              <p><strong>Username:</strong> emilys</p>
-              <p><strong>Password:</strong> emilyspass</p>
-            </div>
-          </div>
+{/*          
+              <p>Username: emilys</p>
+              <p>Password: emilyspass</p> */}
+          
 
           {/* Error Message */}
           {error && (
@@ -83,7 +67,6 @@ const AdminLoginPage = () => {
 
           {/* Login Form */}
           <form onSubmit={handleSubmit} className="space-y-5">
-            {/* Username Field */}
             <div>
               <label htmlFor="username" className="block text-sm font-semibold text-slate-700 mb-2">
                 Username
@@ -104,7 +87,6 @@ const AdminLoginPage = () => {
               </div>
             </div>
 
-            {/* Password Field */}
             <div>
               <label htmlFor="password" className="block text-sm font-semibold text-slate-700 mb-2">
                 Password
@@ -124,8 +106,7 @@ const AdminLoginPage = () => {
                 />
               </div>
             </div>
-
-            {/* Submit Button */}
+            
             <button
               type="submit"
               disabled={loading}
@@ -142,7 +123,6 @@ const AdminLoginPage = () => {
             </button>
           </form>
 
-          {/* Back to Home */}
           <div className="mt-6 text-center">
             <button
               onClick={() => navigate('/')}
@@ -153,11 +133,6 @@ const AdminLoginPage = () => {
             </button>
           </div>
         </div>
-
-        {/* Footer */}
-        <p className="text-center text-sm text-slate-600 mt-6">
-          &copy; 2026 Nador Guide. All rights reserved.
-        </p>
       </div>
     </div>
   );

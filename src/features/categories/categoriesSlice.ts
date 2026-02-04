@@ -2,15 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { categoriesApi } from '../../services/categoriesService';
 import type { Category } from '../../types';
 
-/**
- * Phase 5.1 - Categories Slice
- * 
- * Features:
- * - Fetch categories async thunk
- * - Normalized entities (by id)
- * - Loading and error states
- * - Caching to avoid unnecessary refetches
- */
+
 
 interface CategoriesState {
   entities: Record<number, Category>;
@@ -28,7 +20,7 @@ const initialState: CategoriesState = {
   lastFetch: null,
 };
 
-// Async thunks
+// thunk
 export const fetchCategories = createAsyncThunk(
   'categories/fetchAll',
   async (_, { rejectWithValue }) => {

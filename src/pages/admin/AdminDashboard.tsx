@@ -22,16 +22,6 @@ import {
 } from "../../features/categories/categoriesSlice";
 import type { Place, Category } from "../../types";
 
-/**
- * Admin Dashboard - Enhanced Modern Design
- * Redux integrated for state management
- *
- * Features:
- * - Key metrics with animated cards
- * - Category distribution with visual bars
- * - Recent places overview
- * - Gradient backgrounds & hover effects
- */
 const AdminDashboard = () => {
   const dispatch = useAppDispatch();
   const places = useAppSelector(selectAllPlaces);
@@ -43,7 +33,7 @@ const AdminDashboard = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  // Calculate stats from Redux state
+  // Calculate stats from state
   const stats = useMemo(() => {
     const total = places.length;
     const active = places.filter((p: Place) => p.isActive).length;

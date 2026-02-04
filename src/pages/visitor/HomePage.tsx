@@ -5,15 +5,7 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchCategories, selectAllCategories } from '../../features/categories/categoriesSlice';
 import type { Category } from '../../types';
 
-/**
- * Home Page - Modern & Minimalist Design
- * Phase 5 - Migrated to Redux ✅
- * 
- * Entry point to Nador Guide
- * - Hero section with gradient
- * - Categories with icons
- * - CTA to explore places
- */
+
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const categoriesFromRedux = useAppSelector(selectAllCategories);
@@ -50,7 +42,7 @@ const HomePage = () => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-50 rounded-xl mb-16 px-4 sm:px-8 py-20">
+      <section className="relative overflow-hidden bg-linear-to-br from-blue-50 via-white to-blue-50 rounded-xl mb-16 px-4 sm:px-8 py-20">
         <div className="relative z-10 max-w-3xl mx-auto text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 tracking-tight">
             Welcome to <span className="text-blue-600">Nador</span>
