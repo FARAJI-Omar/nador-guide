@@ -7,19 +7,8 @@ import { ArrowLeft, Plus, Trash2, Image as ImageIcon, Loader2, AlertCircle } fro
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { createPlace, selectPlacesLoading, selectPlacesError } from '../../features/places/placesSlice';
 import { fetchCategories, selectAllCategories } from '../../features/categories/categoriesSlice';
-import type { Category } from '../../types';
+import type { Category, Place } from '../../types';
 
-/**
- * Create Place Form - Modern & Minimalist Design
- * Redux integrated for state management
- * 
- * Features:
- * - React Hook Form + Yup validation
- * - Required fields with visual indicators
- * - Image URLs input with add/remove
- * - Redux async thunk for creation
- * - Redirect to list on success
- */
 
 // Validation Schema
 const placeSchema = yup.object({
@@ -78,25 +67,29 @@ const AdminPlaceCreate = () => {
   }, [dispatch]);
 
   const onSubmit = async (data: PlaceFormData) => {
+    console.log('Form data:', data);
+    console.log('Categories:', categories);
+    console.log('Category ID:', data.categoryId, typeof data.categoryId);
+    
     const category = categories.find((cat: Category) => cat.id === data.categoryId);
     
     if (!category) {
+      console.error('Category not found. CategoryId:', data.categoryId, 'Available categories:', categories);
+      alert(`Please select a valid category. Selected ID: ${data.categoryId}`);
       return;
     }
 
-    const placeData = {
+    const placeData: Omit<Place, 'id' | 'createdAt' | 'updatedAt'> = {
       name: data.name,
       category: category,
       description: data.description,
       images: data.images.filter((img) => img.trim() !== ''),
-      price: data.price || undefined,
-      address: data.address || undefined,
+      price: data.price,
+      address: data.address,
       isActive: data.isActive ?? true,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
     };
 
-    const result = await dispatch(createPlace(placeData as any));
+    const result = await dispatch(createPlace(placeData));
 
     if (createPlace.fulfilled.match(result)) {
       alert('Place created successfully!');

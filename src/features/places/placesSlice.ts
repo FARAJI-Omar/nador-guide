@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
 import { placesApi } from '../../services/placesService';
 import type { Place } from '../../types';
 
@@ -239,20 +239,27 @@ const placesSlice = createSlice({
 // Actions
 export const { clearError, setSelectedPlace } = placesSlice.actions;
 
-// Selectors
-export const selectAllPlaces = (state: any) =>
-  state.places.ids.map((id: number) => state.places.entities[id]);
+// Base selectors
+const selectPlacesState = (state: any) => state.places;
 
-export const selectActivePlaces = (state: any) =>
-  state.places.ids
-    .map((id: number) => state.places.entities[id])
-    .filter((place: Place) => place.isActive);
+// Memoized selectors
+export const selectAllPlaces = createSelector(
+  [selectPlacesState],
+  (placesState) => placesState.ids.map((id: number) => placesState.entities[id])
+);
+
+export const selectActivePlaces = createSelector(
+  [selectAllPlaces],
+  (places) => places.filter((place: Place) => place?.isActive)
+);
 
 export const selectPlaceById = (state: any, placeId: number) =>
   state.places.entities[placeId];
 
-export const selectSelectedPlace = (state: any) =>
-  state.places.selectedPlaceId ? state.places.entities[state.places.selectedPlaceId] : null;
+export const selectSelectedPlace = createSelector(
+  [selectPlacesState],
+  (placesState) => placesState.selectedPlaceId ? placesState.entities[placesState.selectedPlaceId] : null
+);
 
 export const selectPlacesLoading = (state: any) => state.places.loading;
 export const selectPlacesError = (state: any) => state.places.error;

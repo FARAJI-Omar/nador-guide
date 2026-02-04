@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk, createSelector } from '@reduxjs/toolkit';
 import { categoriesApi } from '../../services/categoriesService';
 import type { Category } from '../../types';
 
@@ -69,9 +69,14 @@ const categoriesSlice = createSlice({
 // Actions
 export const { clearError } = categoriesSlice.actions;
 
-// Selectors
-export const selectAllCategories = (state: any) =>
-  state.categories.ids.map((id: number) => state.categories.entities[id]);
+// Base selectors
+const selectCategoriesState = (state: any) => state.categories;
+
+// Memoized selectors
+export const selectAllCategories = createSelector(
+  [selectCategoriesState],
+  (categoriesState) => categoriesState.ids.map((id: number) => categoriesState.entities[id])
+);
 
 export const selectCategoryById = (state: any, categoryId: number) =>
   state.categories.entities[categoryId];
