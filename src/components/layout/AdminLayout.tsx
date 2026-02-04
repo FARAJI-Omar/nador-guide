@@ -1,27 +1,24 @@
-import { Outlet } from 'react-router-dom';
-import AdminSidebar from './AdminSidebar';
-import AdminTopbar from './AdminTopbar';
+import { Outlet } from "react-router-dom";
+import AdminTopbar from "./AdminTopbar";
 
 /**
- * Phase 4.1 - Admin Layout (Tailwind)
- * 
- * Separate UI from visitor:
- * - Sidebar with navigation
- * - Topbar
- * - Content area
+ * Admin Layout - Full Width Modern Design
+ *
+ * Features:
+ * - Full-width layout with top navigation
+ * - Modern header with user profile
+ * - Clean content area without constraints
  */
 const AdminLayout = () => {
   return (
-    <div className="flex max-w-full bg-gray-100">
-      <AdminSidebar />
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+      {/* Modern Topbar */}
+      <AdminTopbar />
 
-      <div className="flex-1 flex flex-col">
-        <AdminTopbar />
-
-        <main className="flex-1 p-6">
-          <Outlet />
-        </main>
-      </div>
+      {/* Content Area - Full width */}
+      <main className="w-full">
+        <Outlet />
+      </main>
     </div>
   );
 };
