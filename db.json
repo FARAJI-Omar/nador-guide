@@ -75,24 +75,6 @@
       "updatedAt": "2026-02-02T09:00:00Z"
     },
     {
-      "id": 7,
-      "name": "Ginger Lawson",
-      "category": {
-        "id": 5,
-        "name": "Shopping",
-        "slug": "shopping"
-      },
-      "description": "Aliquam dolorem et v",
-      "images": [
-        "https://www.istockphoto.com/photos/sunrise-beach"
-      ],
-      "price": "810",
-      "address": "Vel quidem ad veniam",
-      "isActive": true,
-      "createdAt": "2026-02-04T15:22:39.699Z",
-      "updatedAt": "2026-02-04T15:22:39.699Z"
-    },
-    {
       "id": 8,
       "name": "Brenna Gordon",
       "category": {
@@ -109,42 +91,6 @@
       "isActive": false,
       "createdAt": "2026-02-04T17:44:59.468Z",
       "updatedAt": "2026-02-04T17:44:59.468Z"
-    },
-    {
-      "id": 9,
-      "name": "test3",
-      "category": {
-        "id": 1,
-        "name": "Beaches",
-        "slug": "beaches"
-      },
-      "description": "Ullam ea labore iust",
-      "images": [
-        "https://www.istockphoto.com/photos/sunrise-beach"
-      ],
-      "price": "428",
-      "address": "Voluptate rerum obca",
-      "isActive": true,
-      "createdAt": "2026-02-04T18:14:13.105Z",
-      "updatedAt": "2026-02-04T18:14:13.105Z"
-    },
-    {
-      "name": "test4",
-      "category": {
-        "id": 4,
-        "name": "Parks & Nature",
-        "slug": "parks-nature"
-      },
-      "description": "Quis numquam nulla c",
-      "images": [
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
-      ],
-      "price": "764",
-      "address": "Sapiente fugit id a",
-      "isActive": true,
-      "createdAt": "2026-02-04T18:17:49.346Z",
-      "updatedAt": "2026-02-04T18:17:49.346Z",
-      "id": 10
     }
   ]
 }
