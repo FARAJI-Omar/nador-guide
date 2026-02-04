@@ -74,7 +74,7 @@ export const router = createBrowserRouter([
       {
         path: 'places/edit/:id',
         // element: <AdminPlaceEdit />,
-        element: <div>Edit Place</div>, // Placeholder
+        element: <AdminPlaceCreate />, // Placeholder
       },
     ],
   },

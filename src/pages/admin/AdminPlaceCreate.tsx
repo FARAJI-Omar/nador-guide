@@ -41,6 +41,7 @@ const AdminPlaceCreate = () => {
     register,
     handleSubmit,
     control,
+    setValue,
     formState: { errors },
   } = useForm<PlaceFormData>({
     resolver: yupResolver(placeSchema) as any,
@@ -68,7 +69,6 @@ const AdminPlaceCreate = () => {
   const {id} = useParams();
   const isEditing = !!id;
   const existingPlace = useAppSelector((state) => id ? selectPlaceById(state, Number(id)) : null);
-  const { setValue } = useForm();
 
   useEffect(() => {
     if (id) {
