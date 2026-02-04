@@ -1,27 +1,15 @@
-import { useForm, useFieldArray } from 'react-hook-form';
+import { useForm, useFieldArray, set } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import { ArrowLeft, Plus, Trash2, Image as ImageIcon, Loader2, AlertCircle } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { createPlace, selectPlacesLoading, selectPlacesError } from '../../features/places/placesSlice';
+import { createPlace, selectPlacesLoading, selectPlacesError, selectPlaceById, fetchPlaceById, updatePlace } from '../../features/places/placesSlice';
 import { fetchCategories, selectAllCategories } from '../../features/categories/categoriesSlice';
 import type { Category } from '../../types';
 
-/**
- * Create Place Form - Modern & Minimalist Design
- * Redux integrated for state management
- * 
- * Features:
- * - React Hook Form + Yup validation
- * - Required fields with visual indicators
- * - Image URLs input with add/remove
- * - Redux async thunk for creation
- * - Redirect to list on success
- */
 
-// Validation Schema
 const placeSchema = yup.object({
   name: yup.string().required('Place name is required').min(3, 'Name must be at least 3 characters'),
   categoryId: yup.number().required('Category is required').min(1, 'Please select a category'),
@@ -77,6 +65,29 @@ const AdminPlaceCreate = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
+  const {id} = useParams();
+  const isEditing = !!id;
+  const existingPlace = useAppSelector((state) => id ? selectPlaceById(state, Number(id)) : null);
+  const { setValue } = useForm();
+
+  useEffect(() => {
+    if (id) {
+      dispatch(fetchPlaceById(Number(id)));
+    }
+  }, [id, dispatch]);
+
+  useEffect(() => {
+    if (isEditing && existingPlace) {
+      setValue('name', existingPlace.name);
+      setValue('categoryId', existingPlace.category.id);
+      setValue('description', existingPlace.description);
+      setValue('images', existingPlace.images.length > 0 ? existingPlace.images : ['']);
+      setValue('price', existingPlace.price || '');
+      setValue('address', existingPlace.address || '');
+      setValue('isActive', existingPlace.isActive);
+    }
+  }, [isEditing, existingPlace, setValue]);
+
   const onSubmit = async (data: PlaceFormData) => {
     const category = categories.find((cat: Category) => Number(cat.id) === Number(data.categoryId));
     
@@ -96,12 +107,31 @@ const AdminPlaceCreate = () => {
       updatedAt: new Date().toISOString(),
     };
 
-    const result = await dispatch(createPlace(placeData as any));
+    // const result = await dispatch(createPlace(placeData as any));
 
-    if (createPlace.fulfilled.match(result)) {
-      alert('Place created successfully!');
-      navigate('/admin/places');
-    }
+    // if (createPlace.fulfilled.match(result)) {
+    //   alert('Place created successfully!');
+    //   navigate('/admin/places');
+    // }
+
+       let result;
+       if (isEditing && id) {
+        result = await dispatch(updatePlace({
+          id: Number(id),
+          data: placeData
+        }));
+       }
+
+       if(updatePlace.fulfilled.match(result)){
+        alert('Place updated successfully');
+        navigate("/admin/places");
+       } else {
+        result = await dispatch(createPlace(placeData as any));
+        if(createPlace.fulfilled.match(result)){
+          alert("Place created succesfully");
+          navigate("/admin/places");
+        }
+       }
   };
 
   return (
@@ -115,8 +145,8 @@ const AdminPlaceCreate = () => {
           <ArrowLeft className="w-5 h-5" />
         </button>
         <div>
-          <h2 className="text-3xl font-bold text-slate-900">Create New Place</h2>
-          <p className="text-slate-600">Add a new place to Nador Guide</p>
+          <h2 className="text-3xl font-bold text-slate-900">{isEditing ? 'Edit Place' : 'Create New Place'}</h2>
+          <p className="text-slate-600">{isEditing ? 'Update place information' : 'Add a new place to Nador Guide'}</p>
         </div>
       </div>
 
@@ -287,10 +317,10 @@ const AdminPlaceCreate = () => {
             {loading ? (
               <>
                 <Loader2 className="w-5 h-5 animate-spin" />
-                Creating...
+                {isEditing ? 'Updating...' : 'Creating...'}
               </>
             ) : (
-              'Create Place'
+              isEditing ? 'Update Place' : 'Create Place'
             )}
           </button>
           <button
