@@ -42,7 +42,9 @@ export const placesApi = {
       createdAt: now,
       updatedAt: now,
     };
+    console.log('Creating place with data:', placeData);
     const response = await api.post<Place>('/places', placeData);
+    console.log('Created place response:', response.data);
     return response.data;
   },
 
