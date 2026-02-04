@@ -1,36 +1,37 @@
 {
   "categories": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Beaches",
       "slug": "beaches"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Restaurants",
       "slug": "restaurants"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Historical Sites",
       "slug": "historical-sites"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Parks & Nature",
       "slug": "parks-nature"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Shopping",
       "slug": "shopping"
     }
   ],
   "places": [
     {
+      "id": 1,
       "name": "Plage Marchica(update)",
       "category": {
-        "id": "1",
+        "id": 1,
         "name": "Beaches",
         "slug": "beaches"
       },
@@ -43,11 +44,10 @@
       "address": "Marchica Lagoon, Nador",
       "isActive": true,
       "createdAt": "2026-02-04T17:42:46.181Z",
-      "updatedAt": "2026-02-04T17:42:46.181Z",
-      "id": "1"
+      "updatedAt": "2026-02-04T17:42:46.181Z"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Parc Marchica",
       "category": {
         "id": 4,
@@ -75,10 +75,10 @@
       "updatedAt": "2026-02-02T09:00:00Z"
     },
     {
-      "id": "849c",
+      "id": 7,
       "name": "Ginger Lawson",
       "category": {
-        "id": "5",
+        "id": 5,
         "name": "Shopping",
         "slug": "shopping"
       },
@@ -91,6 +91,60 @@
       "isActive": true,
       "createdAt": "2026-02-04T15:22:39.699Z",
       "updatedAt": "2026-02-04T15:22:39.699Z"
+    },
+    {
+      "id": 8,
+      "name": "Brenna Gordon",
+      "category": {
+        "id": 2,
+        "name": "Restaurants",
+        "slug": "restaurants"
+      },
+      "description": "Dolorem debitis simi",
+      "images": [
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+      ],
+      "price": "109",
+      "address": "Illum aut fugit om",
+      "isActive": false,
+      "createdAt": "2026-02-04T17:44:59.468Z",
+      "updatedAt": "2026-02-04T17:44:59.468Z"
+    },
+    {
+      "id": 9,
+      "name": "test3",
+      "category": {
+        "id": 1,
+        "name": "Beaches",
+        "slug": "beaches"
+      },
+      "description": "Ullam ea labore iust",
+      "images": [
+        "https://www.istockphoto.com/photos/sunrise-beach"
+      ],
+      "price": "428",
+      "address": "Voluptate rerum obca",
+      "isActive": true,
+      "createdAt": "2026-02-04T18:14:13.105Z",
+      "updatedAt": "2026-02-04T18:14:13.105Z"
+    },
+    {
+      "name": "test4",
+      "category": {
+        "id": 4,
+        "name": "Parks & Nature",
+        "slug": "parks-nature"
+      },
+      "description": "Quis numquam nulla c",
+      "images": [
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+      ],
+      "price": "764",
+      "address": "Sapiente fugit id a",
+      "isActive": true,
+      "createdAt": "2026-02-04T18:17:49.346Z",
+      "updatedAt": "2026-02-04T18:17:49.346Z",
+      "id": 10
     }
   ]
 }
