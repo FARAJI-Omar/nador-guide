@@ -5,15 +5,6 @@ import { fetchAllPlaces, selectAllPlaces, selectPlacesLoading } from '../../feat
 import { fetchCategories, selectAllCategories } from '../../features/categories/categoriesSlice';
 import type { Place, Category } from '../../types';
 
-/**
- * Admin Dashboard - Modern & Minimalist Design
- * Redux integrated for state management
- * 
- * Display:
- * - Total places with icon
- * - Active vs inactive with icons
- * - Places per category with progress bars
- */
 const AdminDashboard = () => {
   const dispatch = useAppDispatch();
   const places = useAppSelector(selectAllPlaces);
@@ -25,7 +16,7 @@ const AdminDashboard = () => {
     dispatch(fetchCategories());
   }, [dispatch]);
 
-  // Calculate stats from Redux state
+  // Calculate stats from state
   const stats = useMemo(() => {
     const total = places.length;
     const active = places.filter((p: Place) => p.isActive).length;

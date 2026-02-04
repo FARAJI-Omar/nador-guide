@@ -12,16 +12,12 @@ import AdminTopbar from './AdminTopbar';
  */
 const AdminLayout = () => {
   return (
-    <div className="flex min-h-screen bg-gray-100">
-      {/* Sidebar */}
+    <div className="flex max-w-full bg-gray-100">
       <AdminSidebar />
 
-      {/* Main Content */}
       <div className="flex-1 flex flex-col">
-        {/* Topbar */}
         <AdminTopbar />
 
-        {/* Content Area */}
         <main className="flex-1 p-6">
           <Outlet />
         </main>

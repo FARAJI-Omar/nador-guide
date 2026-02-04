@@ -2,15 +2,6 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { placesApi } from '../../services/placesService';
 import type { Place } from '../../types';
 
-/**
- * Phase 5.1 - Places Slice
- * 
- * Features:
- * - Full CRUD async thunks
- * - Normalized entities (by id)
- * - Loading and error states
- * - Separate selectors for active/all places
- */
 
 interface PlacesState {
   entities: Record<number, Place>;
@@ -30,7 +21,7 @@ const initialState: PlacesState = {
   lastFetch: null,
 };
 
-// Async thunks
+//  thunk
 export const fetchAllPlaces = createAsyncThunk(
   'places/fetchAll',
   async (_, { rejectWithValue }) => {
@@ -158,7 +149,7 @@ const placesSlice = createSlice({
       })
       .addCase(fetchActivePlaces.fulfilled, (state, action) => {
         state.loading = false;
-        // Normalize places (only active ones)
+        // only active ones
         state.entities = {};
         state.ids = [];
         action.payload.forEach((place) => {
