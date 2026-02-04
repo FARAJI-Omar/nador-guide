@@ -24,12 +24,12 @@ const AdminTopbar = () => {
 
   return (
     <header className="bg-white shadow-lg sticky top-0 z-50 border-b border-gray-200">
-      <div className="max-w-full px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo & Brand */}
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3 no-underline group">
-              <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ">
+              <div className="w-12 h-12 bg-linear-to-br from-blue-600 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg transition-all duration-300 ">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
               <div>

@@ -84,7 +84,7 @@ export const updatePlace = createAsyncThunk(
 
 export const deletePlace = createAsyncThunk(
   'places/delete',
-  async (id: number, { rejectWithValue }) => {
+  async (id: number , { rejectWithValue }) => {
     try {
       await placesApi.delete(id);
       return id;

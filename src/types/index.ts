@@ -26,7 +26,7 @@ export interface Transport {
 }
 
 export interface Place {
-  id: number;
+  id: string | number;
   name: string;
   category: Category;
   description: string;
