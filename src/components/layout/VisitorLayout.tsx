@@ -1,10 +1,10 @@
-import { Outlet } from 'react-router-dom';
-import Header from './Header';
-import Footer from './Footer';
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
 
 /**
  * Phase 2.1 - Visitor Layout (Tailwind)
- * 
+ *
  * Wraps all visitor/public pages with Header and Footer
  */
 const VisitorLayout = () => {

@@ -78,7 +78,7 @@ const AdminPlaceCreate = () => {
   }, [dispatch]);
 
   const onSubmit = async (data: PlaceFormData) => {
-    const category = categories.find((cat: Category) => cat.id === data.categoryId);
+    const category = categories.find((cat: Category) => Number(cat.id) === Number(data.categoryId));
     
     if (!category) {
       return;
