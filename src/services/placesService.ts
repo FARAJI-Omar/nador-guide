@@ -13,7 +13,7 @@ export const placesApi = {
     return response.data;
   },
 
-  getById: async (id: number): Promise<Place> => {
+  getById: async (id: number | string): Promise<Place> => {
     const response = await api.get<Place>(`/places/${id}`);
     return response.data;
   },
@@ -31,7 +31,7 @@ export const placesApi = {
     return response.data;
   },
 
-  update: async (id: number, place: Partial<Place>): Promise<Place> => {
+  update: async (id: number | string, place: Partial<Place>): Promise<Place> => {
     const placeData = {
       ...place,
       updatedAt: new Date().toISOString(),
@@ -40,11 +40,11 @@ export const placesApi = {
     return response.data;
   },
 
-  delete: async (id: number): Promise<void> => {
+  delete: async (id: number | string): Promise<void> => {
     await api.delete(`/places/${id}`);
   },
 
-  toggleStatus: async (id: number, isActive: boolean): Promise<Place> => {
+  toggleStatus: async (id: number | string, isActive: boolean): Promise<Place> => {
     const response = await api.patch<Place>(`/places/${id}`, {
       isActive,
       updatedAt: new Date().toISOString(),
