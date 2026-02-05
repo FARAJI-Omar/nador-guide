@@ -24,7 +24,7 @@ import {
   fetchCategories,
   selectAllCategories,
 } from "../../features/categories/categoriesSlice";
-import type { Category } from "../../types";
+import type { Category, Place } from "../../types";
 
 const placeSchema = yup.object({
   name: yup
