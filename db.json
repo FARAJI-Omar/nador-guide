@@ -1,35 +1,35 @@
 {
   "categories": [
     {
-      "id": "1",
+      "id": 1,
       "name": "Beaches",
       "slug": "beaches"
     },
     {
-      "id": "2",
+      "id": 2,
       "name": "Restaurants",
       "slug": "restaurants"
     },
     {
-      "id": "3",
+      "id": 3,
       "name": "Historical Sites",
       "slug": "historical-sites"
     },
     {
-      "id": "4",
+      "id": 4,
       "name": "Parks & Nature",
       "slug": "parks-nature"
     },
     {
-      "id": "5",
+      "id": 5,
       "name": "Shopping",
       "slug": "shopping"
     }
   ],
   "places": [
     {
-      "id": "1",
-      "name": "Plage Marchica",
+      "id": 1,
+      "name": "Plage Marchica(update)",
       "category": {
         "id": 1,
         "name": "Beaches",
@@ -37,69 +37,17 @@
       },
       "description": "Beautiful beach on the Marchica Lagoon with crystal clear waters and stunning views. Perfect for families and water sports enthusiasts.",
       "images": [
-        "/images/marchica-beach-1.jpg",
-        "/images/marchica-beach-2.jpg"
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
+        "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80"
       ],
-      "openingHours": {
-        "monday": "8:00 AM - 8:00 PM",
-        "tuesday": "8:00 AM - 8:00 PM",
-        "wednesday": "8:00 AM - 8:00 PM",
-        "thursday": "8:00 AM - 8:00 PM",
-        "friday": "8:00 AM - 8:00 PM",
-        "saturday": "8:00 AM - 9:00 PM",
-        "sunday": "8:00 AM - 9:00 PM"
-      },
       "price": "Free",
       "address": "Marchica Lagoon, Nador",
-      "transport": [
-        {
-          "type": "bus",
-          "details": "Bus line 5 from city center"
-        },
-        {
-          "type": "taxi",
-          "details": "15 minutes from downtown"
-        }
-      ],
       "isActive": true,
-      "createdAt": "2026-02-01T10:00:00Z",
-      "updatedAt": "2026-02-01T10:00:00Z"
+      "createdAt": "2026-02-04T17:42:46.181Z",
+      "updatedAt": "2026-02-04T17:42:46.181Z"
     },
     {
-      "id": "2",
-      "name": "Restaurant La Perle",
-      "category": {
-        "id": 2,
-        "name": "Restaurants",
-        "slug": "restaurants"
-      },
-      "description": "Traditional Moroccan cuisine with a modern twist. Fresh seafood from the Mediterranean and authentic local dishes.",
-      "images": [
-        "/images/la-perle-1.jpg"
-      ],
-      "openingHours": {
-        "monday": "12:00 PM - 11:00 PM",
-        "tuesday": "12:00 PM - 11:00 PM",
-        "wednesday": "12:00 PM - 11:00 PM",
-        "thursday": "12:00 PM - 11:00 PM",
-        "friday": "12:00 PM - 12:00 AM",
-        "saturday": "12:00 PM - 12:00 AM",
-        "sunday": "12:00 PM - 11:00 PM"
-      },
-      "price": "$$",
-      "address": "Avenue Mohamed V, Nador",
-      "transport": [
-        {
-          "type": "walking",
-          "details": "10 minutes from city center"
-        }
-      ],
-      "isActive": true,
-      "createdAt": "2026-02-01T11:00:00Z",
-      "updatedAt": "2026-02-01T11:00:00Z"
-    },
-    {
-      "id": "4",
+      "id": 4,
       "name": "Parc Marchica",
       "category": {
         "id": 4,
@@ -108,7 +56,7 @@
       },
       "description": "Green oasis in the city with walking trails, playgrounds, and picnic areas. Great for families and nature lovers.",
       "images": [
-        "/images/parc-marchica-1.jpg"
+        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80"
       ],
       "price": "Free",
       "address": "Boulevard de la Marchica, Nador",
@@ -125,6 +73,24 @@
       "isActive": true,
       "createdAt": "2026-02-02T09:00:00Z",
       "updatedAt": "2026-02-02T09:00:00Z"
+    },
+    {
+      "id": 8,
+      "name": "Brenna Gordon",
+      "category": {
+        "id": 2,
+        "name": "Restaurants",
+        "slug": "restaurants"
+      },
+      "description": "Dolorem debitis simi",
+      "images": [
+        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
+      ],
+      "price": "109",
+      "address": "Illum aut fugit om",
+      "isActive": false,
+      "createdAt": "2026-02-04T17:44:59.468Z",
+      "updatedAt": "2026-02-04T17:44:59.468Z"
     }
   ]
 }

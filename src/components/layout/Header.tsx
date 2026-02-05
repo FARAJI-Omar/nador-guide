@@ -1,37 +1,48 @@
-import { Link } from 'react-router-dom';
-import { MapPin, Home, Map } from 'lucide-react';
-
+import { Link } from "react-router-dom";
+import { Home, Map, LayoutDashboard } from "lucide-react";
+import { useAppSelector } from "../../app/hooks";
+import { selectUser } from "../../features/auth/authSlice";
 
 const Header = () => {
+  const user = useAppSelector(selectUser);
+
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-xs">
-      <div className="max-w-full px-4">
-        <div className="flex justify-between items-center h-16">
+    <header className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link 
-            to="/" 
-            className="flex items-center gap-2 no-underline text-slate-900 hover:text-blue-600 transition-colors duration-200"
+          <Link
+            to="/"
+            className="flex items-center no-underline hover:opacity-80 transition-opacity duration-200"
           >
-            <MapPin className="w-8 h-8 text-blue-600" />
-            <h1 className="text-xl font-bold tracking-tight">Nador Guide</h1>
+            <img src="/images/logo.svg" alt="Guidino" className="h-12 w-auto" />
           </Link>
 
           {/* Navigation */}
           <nav className="flex items-center gap-1">
-            <Link 
-              to="/" 
-              className="flex items-center gap-2 px-4 py-2 text-slate-700 no-underline hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
+            <Link
+              to="/"
+              className="flex items-center gap-2 px-4 py-2 text-slate-700 no-underline hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium"
             >
               <Home className="w-5 h-5" />
-              <span className="font-medium">Home</span>
+              <span>Home</span>
             </Link>
-            <Link 
-              to="/places" 
-              className="flex items-center gap-2 px-4 py-2 text-slate-700 no-underline hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200"
+            <Link
+              to="/places"
+              className="flex items-center gap-2 px-4 py-2 text-slate-700 no-underline hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium"
             >
               <Map className="w-5 h-5" />
-              <span className="font-medium">Places</span>
+              <span>Places</span>
             </Link>
+            {user && (
+              <Link
+                to="/admin/dashboard"
+                className="flex items-center gap-2 px-4 py-2 text-slate-700 no-underline hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-200 font-medium"
+              >
+                <LayoutDashboard className="w-5 h-5" />
+                <span>Dashboard</span>
+              </Link>
+            )}
           </nav>
         </div>
       </div>
