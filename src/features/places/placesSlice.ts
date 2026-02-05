@@ -84,7 +84,7 @@ export const updatePlace = createAsyncThunk(
 
 export const deletePlace = createAsyncThunk(
   'places/delete',
-  async (id: number , { rejectWithValue }) => {
+  async (id: number, { rejectWithValue }) => {
     try {
       await placesApi.delete(id);
       return id;
@@ -132,7 +132,7 @@ const placesSlice = createSlice({
         // Normalize places
         state.entities = {};
         state.ids = [];
-        action.payload.forEach((place) => {
+        action.payload.forEach((place: Place) => {
           state.entities[place.id] = place;
           state.ids.push(place.id);
         });
@@ -152,7 +152,7 @@ const placesSlice = createSlice({
         // only active ones
         state.entities = {};
         state.ids = [];
-        action.payload.forEach((place) => {
+        action.payload.forEach((place: Place) => {
           state.entities[place.id] = place;
           state.ids.push(place.id);
         });
@@ -214,7 +214,7 @@ const placesSlice = createSlice({
       .addCase(deletePlace.fulfilled, (state, action) => {
         state.loading = false;
         delete state.entities[action.payload];
-        state.ids = state.ids.filter((id) => id !== action.payload);
+        state.ids = state.ids.filter((id: number) => id !== action.payload);
       })
       .addCase(deletePlace.rejected, (state, action) => {
         state.loading = false;
