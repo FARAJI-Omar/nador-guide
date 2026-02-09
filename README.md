@@ -1,73 +1,141 @@
-# React + TypeScript + Vite
+# Nador Guide 🏖️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern web application for discovering and exploring places in Nador, Morocco. Built with React, TypeScript, and Redux Toolkit.
 
-Currently, two official plugins are available:
+## 📋 Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Nador Guide is a full-featured tourism platform featuring:
 
-## React Compiler
+- **Visitor Space**: Browse and discover places in Nador with detailed information
+- **Admin Dashboard**: Manage places, categories, and content
+- **Category Filtering**: Find places by type (beaches, restaurants, historical sites, etc.)
+- **Authentication**: Secure admin access with JWT-based authentication
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Tech Stack
 
-## Expanding the ESLint configuration
+- **Frontend**: React 19 + TypeScript
+- **State Management**: Redux Toolkit
+- **Routing**: React Router DOM v7
+- **Styling**: Tailwind CSS v4
+- **Forms**: React Hook Form + Yup validation
+- **HTTP Client**: Axios
+- **Backend**: JSON Server (mock API)
+- **Build Tool**: Vite
+- **Icons**: Lucide React
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📁 Project Structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── app/                # Redux store configuration
+├── features/           # Redux slices (auth, places, categories)
+├── pages/              # Page components
+│   ├── visitor/       # Public pages (Home, Places List, Details)
+│   └── admin/         # Protected pages (Dashboard, Management)
+├── components/         # Reusable components
+│   ├── common/        # Shared UI components
+│   ├── layout/        # Layout wrappers
+│   └── ui/            # Basic UI elements
+├── routes/            # Route configuration & protection
+├── services/          # API clients & service layer
+├── types/             # TypeScript type definitions
+├── utils/             # Helper functions
+└── hooks/             # Custom React hooks
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. **Clone the repository**
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```bash
+   git clone <repository-url>
+   cd nador-guide
+   ```
+
+2. **Install dependencies**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Start the JSON Server (in a separate terminal)**
+   ```bash
+   npm run server
+   ```
+
+The app will be available at `http://localhost:5173`  
+The API server runs on `http://localhost:3001`
+
+## 📜 Available Scripts
+
+- `npm run dev` - Start Vite development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run server` - Start JSON Server (mock backend)
+- `npm run lint` - Run ESLint
+
+## 🔑 Admin Access
+
+To access the admin dashboard, you'll need to log in at `/admin/login`.
+
+The application uses DummyJSON API for authentication. You can use any valid credentials from [DummyJSON users](https://dummyjson.com/users).
+
+Example credentials:
+
+- **Username**: `emilys`
+- **Password**: `emilyspass`
+
+## 🎯 Features
+
+### Visitor Features
+
+- ✅ Browse all active places
+- ✅ Filter places by category
+- ✅ View detailed place information
+- ✅ Responsive design for mobile and desktop
+- ✅ Image galleries
+- ✅ Opening hours and pricing information
+
+### Admin Features
+
+- ✅ Secure authentication
+- ✅ Dashboard with statistics
+- ✅ Create, edit, and delete places
+- ✅ Activate/deactivate places
+- ✅ Category management
+- ✅ Image upload support
+- ✅ Form validation
+
+## 🎨 Design System
+
+The project uses Tailwind CSS with a custom configuration optimized for the tourism/guide theme. Components are built with responsiveness and accessibility in mind.
+
+## 🔄 State Management
+
+Redux Toolkit is used for global state management with the following slices:
+
+- **authSlice**: Authentication state and user info
+- **placesSlice**: Places data and CRUD operations
+- **categoriesSlice**: Categories data
+
+## 🌐 API Endpoints
+
+The JSON Server provides the following endpoints:
+
+- `GET /places` - Get all places
+- `GET /places/:id` - Get place by ID
+- `POST /places` - Create a new place
+- `PUT /places/:id` - Update a place
+- `DELETE /places/:id` - Delete a place
+- `GET /categories` - Get all categories
+
+
+---
+
+Built with ❤️ for Nador, Morocco
