@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
   Plus,
   Edit,
@@ -52,7 +53,12 @@ const AdminPlacesList = () => {
     if (!window.confirm(`Are you sure you want to delete "${name}"?`)) {
       return;
     }
-    await dispatch(deletePlace(id));
+    const result = await dispatch(deletePlace(id));
+    if (deletePlace.fulfilled.match(result)) {
+      toast.success(`"${name}" deleted successfully!`);
+    } else {
+      toast.error("Failed to delete place");
+    }
   };
 
   // Filter and sort places

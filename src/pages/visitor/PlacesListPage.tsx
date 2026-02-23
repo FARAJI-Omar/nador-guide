@@ -1,6 +1,6 @@
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Loader2, AlertCircle } from 'lucide-react';
+import { Loader2, AlertCircle, Search } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchActivePlaces, selectActivePlaces, selectPlacesLoading, selectPlacesError } from '../../features/places/placesSlice';
 import { fetchCategories, selectAllCategories } from '../../features/categories/categoriesSlice';
@@ -25,6 +25,7 @@ const PlacesListPage = () => {
   const loading = useAppSelector(selectPlacesLoading);
   const error = useAppSelector(selectPlacesError);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState('');
   
   const selectedCategory = searchParams.get('category');
 
@@ -36,12 +37,22 @@ const PlacesListPage = () => {
     }
   }, [dispatch, categories.length]);
 
-  // Filter places by category
+  // Filter places by category and search
   const filteredPlaces = useMemo(() => {
-    return selectedCategory
+    let result = selectedCategory
       ? places.filter((place: Place) => place.category.slug === selectedCategory)
       : places;
-  }, [places, selectedCategory]);
+    
+    // Apply search filter (only if 3+ characters)
+    if (searchQuery.length >= 3) {
+      result = result.filter((place: Place) =>
+        place.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        place.description.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+    }
+    
+    return result;
+  }, [places, selectedCategory, searchQuery]);
 
   // Handle category filter
   const handleCategoryFilter = (slug: string | null) => {
@@ -82,6 +93,20 @@ const PlacesListPage = () => {
       <div className="mb-8">
         <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Discover Nador</h1>
         <p className="text-lg text-slate-600">Explore amazing places in the city</p>
+      </div>
+
+      {/* Search Bar */}
+      <div className="mb-6">
+        <div className="relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search places... (min 3 characters)"
+            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+          />
+        </div>
       </div>
       
       {/* Category Filters */}

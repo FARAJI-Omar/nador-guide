@@ -9,7 +9,10 @@ import {
   ArrowRight,
   MapPin,
   Users,
-  Sparkles,
+  Building2,
+  Coffee,
+  Palette,
+  PartyPopper,
 } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
@@ -37,18 +40,26 @@ const HomePage = () => {
   // Static icons mapping
   const iconMap: Record<string, any> = {
     beaches: Waves,
+    "natural-sites": TreePine,
+    "monuments-heritage": Landmark,
+    "museums-culture": Palette,
+    "shopping-souks": ShoppingBag,
     restaurants: UtensilsCrossed,
-    "historical-sites": Landmark,
-    "parks-nature": TreePine,
-    shopping: ShoppingBag,
+    "hotels-accommodations": Building2,
+    cafes: Coffee,
+    "leisure-entertainment": PartyPopper,
   };
 
   const colorMap: Record<string, string> = {
     beaches: "text-cyan-600",
+    "natural-sites": "text-green-600",
+    "monuments-heritage": "text-amber-600",
+    "museums-culture": "text-purple-600",
+    "shopping-souks": "text-pink-600",
     restaurants: "text-orange-600",
-    "historical-sites": "text-amber-600",
-    "parks-nature": "text-green-600",
-    shopping: "text-purple-600",
+    "hotels-accommodations": "text-blue-600",
+    cafes: "text-brown-600",
+    "leisure-entertainment": "text-indigo-600",
   };
 
   const categories = categoriesFromRedux.map((cat: Category) => ({
@@ -103,7 +114,7 @@ const HomePage = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((category) => {
             const Icon = category.icon;
             return (

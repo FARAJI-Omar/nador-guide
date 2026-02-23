@@ -3,6 +3,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { toast } from "react-toastify";
 import {
   ArrowLeft,
   Plus,
@@ -129,7 +130,7 @@ const AdminPlaceCreate = () => {
 
     if (!category) {
       console.error('Category not found. CategoryId:', data.categoryId, 'Available categories:', categories);
-      alert(`Please select a valid category. Selected ID: ${data.categoryId}`);
+      toast.error(`Please select a valid category. Selected ID: ${data.categoryId}`);
       return;
     }
 
@@ -158,16 +159,19 @@ const AdminPlaceCreate = () => {
           data: placeData,
         }),
       );
-    }
-
-    if (updatePlace.fulfilled.match(result)) {
-      alert("Place updated successfully");
-      navigate("/admin/places");
+      if (updatePlace.fulfilled.match(result)) {
+        toast.success("Place updated successfully!");
+        navigate("/admin/places");
+      } else {
+        toast.error("Failed to update place");
+      }
     } else {
       result = await dispatch(createPlace(placeData as any));
       if (createPlace.fulfilled.match(result)) {
-        alert("Place created succesfully");
+        toast.success("Place created successfully!");
         navigate("/admin/places");
+      } else {
+        toast.error("Failed to create place");
       }
     }
   };

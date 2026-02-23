@@ -7,23 +7,43 @@
     },
     {
       "id": 2,
+      "name": "Natural Sites",
+      "slug": "natural-sites"
+    },
+    {
+      "id": 3,
+      "name": "Monuments & Heritage",
+      "slug": "monuments-heritage"
+    },
+    {
+      "id": 4,
+      "name": "Museums & Culture",
+      "slug": "museums-culture"
+    },
+    {
+      "id": 5,
+      "name": "Shopping & Souks",
+      "slug": "shopping-souks"
+    },
+    {
+      "id": 6,
       "name": "Restaurants",
       "slug": "restaurants"
     },
     {
-      "id": 3,
-      "name": "Historical Sites",
-      "slug": "historical-sites"
+      "id": 7,
+      "name": "Hotels & Accommodations",
+      "slug": "hotels-accommodations"
     },
     {
-      "id": 4,
-      "name": "Parks & Nature",
-      "slug": "parks-nature"
+      "id": 8,
+      "name": "Cafés",
+      "slug": "cafes"
     },
     {
-      "id": 5,
-      "name": "Shopping",
-      "slug": "shopping"
+      "id": 9,
+      "name": "Leisure & Entertainment",
+      "slug": "leisure-entertainment"
     }
   ],
   "places": [
@@ -47,34 +67,6 @@
       "updatedAt": "2026-02-04T17:42:46.181Z"
     },
     {
-      "id": 4,
-      "name": "Parc Marchica",
-      "category": {
-        "id": 4,
-        "name": "Parks & Nature",
-        "slug": "parks-nature"
-      },
-      "description": "Green oasis in the city with walking trails, playgrounds, and picnic areas. Great for families and nature lovers.",
-      "images": [
-        "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80"
-      ],
-      "price": "Free",
-      "address": "Boulevard de la Marchica, Nador",
-      "transport": [
-        {
-          "type": "bus",
-          "details": "Bus line 3"
-        },
-        {
-          "type": "walking",
-          "details": "15 minutes from city center"
-        }
-      ],
-      "isActive": true,
-      "createdAt": "2026-02-02T09:00:00Z",
-      "updatedAt": "2026-02-02T09:00:00Z"
-    },
-    {
       "id": 8,
       "name": "Brenna Gordon",
       "category": {
@@ -88,9 +80,9 @@
       ],
       "price": "109",
       "address": "Illum aut fugit om",
-      "isActive": false,
+      "isActive": true,
       "createdAt": "2026-02-04T17:44:59.468Z",
-      "updatedAt": "2026-02-04T17:44:59.468Z"
+      "updatedAt": "2026-02-20T10:11:09.954Z"
     }
   ]
 }
