@@ -104,7 +104,7 @@ const AdminDashboard = () => {
                 <Map latitude={places[0].latitude} longitude={places[0].longitude} name="Nador" />
               ) : (
                 <div className="h-full flex items-center justify-center bg-gray-100">
-                  <p className="text-slate-500">No location data available</p>
+                  <p className="text-slate-500">No places available for display</p>
                 </div>
               )}
             </div>
