@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { Loader2, AlertCircle, Search } from 'lucide-react';
+import { Loader2, AlertCircle, Search, Waves, TreePine, Landmark, Palette, ShoppingBag, UtensilsCrossed, Building2, Coffee, PartyPopper } from 'lucide-react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { fetchActivePlaces, selectActivePlaces, selectPlacesLoading, selectPlacesError } from '../../features/places/placesSlice';
 import { fetchCategories, selectAllCategories } from '../../features/categories/categoriesSlice';
 import PlaceCard from '../../components/common/PlaceCard';
+import Pagination from '../../components/common/Pagination';
 import type { Place, Category } from '../../types';
 
 /**
@@ -26,8 +27,23 @@ const PlacesListPage = () => {
   const error = useAppSelector(selectPlacesError);
   const [searchParams, setSearchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState('');
+  const [sortBy, setSortBy] = useState('recommended');
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 8;
   
   const selectedCategory = searchParams.get('category');
+
+  const categoryIcons: Record<string, any> = {
+    beaches: Waves,
+    "natural-sites": TreePine,
+    "monuments-heritage": Landmark,
+    "museums-culture": Palette,
+    "shopping-souks": ShoppingBag,
+    restaurants: UtensilsCrossed,
+    "hotels-accommodations": Building2,
+    cafes: Coffee,
+    "leisure-entertainment": PartyPopper,
+  };
 
   // Fetch data
   useEffect(() => {
@@ -51,11 +67,27 @@ const PlacesListPage = () => {
       );
     }
     
+    // Apply sorting
+    if (sortBy === 'a-z') {
+      result = [...result].sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'z-a') {
+      result = [...result].sort((a, b) => b.name.localeCompare(a.name));
+    }
+    
     return result;
-  }, [places, selectedCategory, searchQuery]);
+  }, [places, selectedCategory, searchQuery, sortBy]);
+
+  // Paginate results
+  const paginatedPlaces = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredPlaces.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredPlaces, currentPage, itemsPerPage]);
+
+  const totalPages = Math.ceil(filteredPlaces.length / itemsPerPage);
 
   // Handle category filter
   const handleCategoryFilter = (slug: string | null) => {
+    setCurrentPage(1);
     if (slug) {
       setSearchParams({ category: slug });
     } else {
@@ -89,51 +121,70 @@ const PlacesListPage = () => {
 
   return (
     <div className="w-full">
-      {/* Header */}
-      <div className="mb-8">
-        <h1 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-2">Discover Nador</h1>
-        <p className="text-lg text-slate-600">Explore amazing places in the city</p>
-      </div>
-
-      {/* Search Bar */}
-      <div className="mb-6">
+      {/* Search Bar - Centered */}
+      <div className="max-w-2xl mx-auto mb-8">
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
           <input
             type="text"
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="Search places... (min 3 characters)"
-            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
+            placeholder="Search for a beach, museum, or park in Nador..."
+            className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all shadow-sm"
           />
         </div>
       </div>
-      
-      {/* Category Filters */}
-      <div className="flex flex-wrap gap-3 mb-10">
+
+      {/* Category Filters - Icon Pills */}
+      <div className="flex flex-wrap justify-center gap-3 mb-10">
         <button
           onClick={() => handleCategoryFilter(null)}
-          className={`px-5 py-2.5 rounded-lg font-medium transition-all duration-200 ${
+          className={`px-6 py-2.5 rounded-full font-medium transition-all duration-200 cursor-pointer ${
             selectedCategory === null
-              ? 'bg-blue-600 text-white shadow-sm'
-              : 'bg-white text-slate-700 border border-gray-200 hover:border-blue-300 hover:bg-blue-50'
+              ? 'bg-blue-600 text-white shadow-md'
+              : 'bg-white text-slate-700 border border-gray-200 hover:border-blue-300'
           }`}
         >
           All Places
         </button>
-        {categories.map((category: Category) => (
-          <button
-            key={category.id}
-            onClick={() => handleCategoryFilter(category.slug)}
-            className={`px-5 py-2.5 rounded-lg font-medium transition-all duration-200 ${
-              selectedCategory === category.slug
-                ? 'bg-blue-600 text-white shadow-sm'
-                : 'bg-white text-slate-700 border border-gray-200 hover:border-blue-300 hover:bg-blue-50'
-            }`}
+        {categories.map((category: Category) => {
+          const Icon = categoryIcons[category.slug] || Waves;
+          return (
+            <button
+              key={category.id}
+              onClick={() => handleCategoryFilter(category.slug)}
+              className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-medium transition-all duration-200 cursor-pointer ${
+                selectedCategory === category.slug
+                  ? 'bg-blue-600 text-white shadow-md'
+                  : 'bg-white text-slate-700 border border-gray-200 hover:border-blue-300'
+              }`}
+            >
+              <Icon className="w-4 h-4" />
+              {category.name}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Results Header */}
+      <div className="flex items-start justify-between mb-8">
+        <div className='text-left'>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">
+            {filteredPlaces.length} Places Found in Nador
+          </h1>
+          <p className="text-slate-600">Discover the best attractions and hidden gems in the city.</p>
+        </div>
+        <div className="flex items-center gap-2">
+          <span className="text-slate-700 font-medium">Sort by:</span>
+          <select
+            value={sortBy}
+            onChange={(e) => setSortBy(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none bg-white"
           >
-            {category.name}
-          </button>
-        ))}
+            <option value="a-z">A-Z</option>
+            <option value="z-a">Z-A</option>
+          </select>
+        </div>
       </div>
 
       {/* Places Grid */}
@@ -145,11 +196,22 @@ const PlacesListPage = () => {
           <p className="text-lg text-slate-600">No places found in this category.</p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredPlaces.map((place: Place) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {paginatedPlaces.map((place: Place) => (
             <PlaceCard key={place.id} place={place} />
           ))}
         </div>
+      )}
+
+      {/* Pagination */}
+      {filteredPlaces.length > 0 && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          onPageChange={setCurrentPage}
+          totalItems={filteredPlaces.length}
+          itemsPerPage={itemsPerPage}
+        />
       )}
     </div>
   );

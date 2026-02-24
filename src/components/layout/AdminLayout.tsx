@@ -1,14 +1,11 @@
 import { Outlet } from "react-router-dom";
-import AdminTopbar from "./AdminTopbar";
+import AdminSidebar from "./AdminSidebar";
 
 const AdminLayout = () => {
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-50 via-blue-50 to-indigo-50">
-      {/* Modern Topbar */}
-      <AdminTopbar />
-
-      {/* Content Area - Full width */}
-      <main className="w-full">
+    <div className="flex min-h-screen">
+      <AdminSidebar />
+      <main className="flex-1">
         <Outlet />
       </main>
     </div>

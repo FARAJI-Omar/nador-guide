@@ -37,8 +37,8 @@
     },
     {
       "id": 8,
-      "name": "Cafés",
-      "slug": "cafes"
+      "name": "coffee shop",
+      "slug": "coffee"
     },
     {
       "id": 9,
@@ -48,41 +48,268 @@
   ],
   "places": [
     {
-      "id": 1,
-      "name": "Plage Marchica(update)",
-      "category": {
-        "id": 1,
-        "name": "Beaches",
-        "slug": "beaches"
-      },
-      "description": "Beautiful beach on the Marchica Lagoon with crystal clear waters and stunning views. Perfect for families and water sports enthusiasts.",
-      "images": [
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80",
-        "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&q=80"
-      ],
-      "price": "Free",
-      "address": "Marchica Lagoon, Nador",
-      "isActive": true,
-      "createdAt": "2026-02-04T17:42:46.181Z",
-      "updatedAt": "2026-02-04T17:42:46.181Z"
-    },
-    {
-      "id": 8,
-      "name": "Brenna Gordon",
+      "name": "Gary Boyle",
       "category": {
         "id": 2,
-        "name": "Restaurants",
-        "slug": "restaurants"
+        "name": "Natural Sites",
+        "slug": "natural-sites"
       },
-      "description": "Dolorem debitis simi",
+      "description": "Sunt nobis excepturi",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+      ],
+      "price": "613",
+      "address": "Dolores sit voluptat",
+      "latitude": 35.1813009230029,
+      "longitude": -2.9907531727803875,
+      "parking": false,
+      "isActive": true,
+      "updatedAt": "2026-02-24T01:29:31.633Z",
+      "id": 2,
+      "likes": 1
+    },
+    {
+      "name": "Gary Boyle",
+      "category": {
+        "id": 2,
+        "name": "Natural Sites",
+        "slug": "natural-sites"
+      },
+      "description": "Sunt nobis excepturi",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+      ],
+      "price": "613",
+      "address": "Dolores sit voluptat",
+      "latitude": 35.1813009230029,
+      "longitude": -2.9907531727803875,
+      "parking": false,
+      "isActive": true,
+      "updatedAt": "2026-02-24T01:32:43.336Z",
+      "id": 3,
+      "likes": 2
+    },
+    {
+      "name": "Gary Boyle",
+      "category": {
+        "id": 2,
+        "name": "Natural Sites",
+        "slug": "natural-sites"
+      },
+      "description": "Sunt nobis excepturi",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+      ],
+      "price": "613",
+      "address": "Dolores sit voluptat",
+      "latitude": 35.1813009230029,
+      "longitude": -2.9907531727803875,
+      "parking": false,
+      "isActive": true,
+      "updatedAt": "2026-02-24T01:34:26.190Z",
+      "id": 4,
+      "likes": 3
+    },
+    {
+      "name": "Gary Boyle",
+      "category": {
+        "id": 3,
+        "name": "Natural Sites",
+        "slug": "natural-sites"
+      },
+      "description": "Sunt nobis excepturi",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+      ],
+      "price": "613",
+      "address": "Dolores sit voluptat",
+      "latitude": 35.1813009230029,
+      "longitude": -2.9907531727803875,
+      "parking": false,
+      "isActive": false,
+      "updatedAt": "2026-02-23T23:53:20.144Z",
+      "id": 5,
+      "likes": 0
+    },
+    {
+      "name": "Gary Boyle",
+      "category": {
+        "id": 2,
+        "name": "Natural Sites",
+        "slug": "natural-sites"
+      },
+      "description": "Sunt nobis excepturi",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+      ],
+      "price": "613",
+      "address": "Dolores sit voluptat",
+      "latitude": 35.1813009230029,
+      "longitude": -2.9907531727803875,
+      "parking": false,
+      "isActive": false,
+      "updatedAt": "2026-02-24T00:15:34.427Z",
+      "id": 6,
+      "likes": 0
+    },
+    {
+      "name": "Gary Boyle",
+      "category": {
+        "id": 6,
+        "name": "Leisure & Entertainment",
+        "slug": "leisure-entertainment"
+      },
+      "description": "Sunt nobis excepturi",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+      ],
+      "price": "613",
+      "address": "Dolores sit voluptat",
+      "latitude": 35.1813009230029,
+      "longitude": -2.9907531727803875,
+      "parking": false,
+      "isActive": true,
+      "updatedAt": "2026-02-23T23:00:29.670Z",
+      "id": 7,
+      "likes": 0
+    },
+    {
+      "name": "Gary Boyle",
+      "category": {
+        "id": 7,
+        "name": "Leisure & Entertainment",
+        "slug": "leisure-entertainment"
+      },
+      "description": "Sunt nobis excepturi",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+      ],
+      "price": "613",
+      "address": "Dolores sit voluptat",
+      "latitude": 35.1813009230029,
+      "longitude": -2.9907531727803875,
+      "parking": false,
+      "isActive": true,
+      "updatedAt": "2026-02-23T23:00:29.670Z",
+      "id": 8,
+      "likes": 0
+    },
+    {
+      "name": "Gary Boyle",
+      "category": {
+        "id": 11,
+        "name": "Leisure & Entertainment",
+        "slug": "leisure-entertainment"
+      },
+      "description": "Sunt nobis excepturi",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+      ],
+      "price": "613",
+      "address": "Dolores sit voluptat",
+      "latitude": 35.1813009230029,
+      "longitude": -2.9907531727803875,
+      "parking": false,
+      "isActive": true,
+      "updatedAt": "2026-02-23T23:00:29.670Z",
+      "id": 9,
+      "likes": 0
+    },
+    {
+      "name": "Gary Boyle",
+      "category": {
+        "id": 12,
+        "name": "Leisure & Entertainment",
+        "slug": "leisure-entertainment"
+      },
+      "description": "Sunt nobis excepturi",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+      ],
+      "price": "613",
+      "address": "Dolores sit voluptat",
+      "latitude": 35.1813009230029,
+      "longitude": -2.9907531727803875,
+      "parking": false,
+      "isActive": true,
+      "updatedAt": "2026-02-23T23:00:29.670Z",
+      "id": 10,
+      "likes": 0
+    },
+    {
+      "name": "youcode",
+      "category": {
+        "id": 9,
+        "name": "Leisure & Entertainment",
+        "slug": "leisure-entertainment"
+      },
+      "description": "youcode um6p",
+      "images": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStZujxrSj_6GmuPC3AFnWJrR0JBXSqjV4_Fw&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvOcb6gapRF3o5_tZEgqAwHRTiSclkcg3dunh4Vj9Q&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg5H_smZ9DsMpSboLS2fM_JmR1jAOLzy__zSuy3olW&s"
+      ],
+      "address": "nador chabiba",
+      "latitude": 35.172948869152776,
+      "longitude": -2.933315276968642,
+      "bestVisitTime": "09:00 - 17:30",
+      "parking": false,
+      "isActive": true,
+      "createdAt": "2026-02-23T22:57:41.375Z",
+      "updatedAt": "2026-02-23T22:57:41.375Z",
+      "id": 12,
+      "likes": 0
+    },
+    {
+      "name": "Naomi Bauer",
+      "category": {
+        "id": 2,
+        "name": "Natural Sites",
+        "slug": "natural-sites"
+      },
+      "description": "In velit nihil ad s",
       "images": [
         "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
       ],
-      "price": "109",
-      "address": "Illum aut fugit om",
+      "subtitle": "Laborum sint at volu",
+      "address": "Dolores sed eius rep",
+      "latitude": 35.16348029785281,
+      "longitude": -2.913677214528434,
+      "tariff": "Id veritatis cupidit",
+      "bestVisitTime": "Ipsum dolor impedit",
+      "busInfo": "Deleniti quae dolore",
+      "parking": true,
       "isActive": true,
-      "createdAt": "2026-02-04T17:44:59.468Z",
-      "updatedAt": "2026-02-20T10:11:09.954Z"
+      "createdAt": "2026-02-24T01:37:21.239Z",
+      "updatedAt": "2026-02-24T01:37:21.239Z",
+      "id": 13
     }
   ]
 }

@@ -40,16 +40,16 @@ const AdminLoginPage = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-slate-50 via-blue-50 to-slate-50 px-4 py-8">
-      <div className="w-full max-w-[40%]">
+      <div className="w-full max-w-[35%]">
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-xl p-10 border border-gray-100">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 rounded-full mb-4">
-              <MapPin className="w-8 h-8 text-blue-600" />
+            <div className="inline-flex items-center justify-center w-40 h-16 mb-4">
+              <img src="/images/logo.svg" alt="GuidIno Logo" />
             </div>
-            <h1 className="text-3xl font-bold text-slate-900 mb-2">Admin Login</h1>
-            <p className="text-slate-600">Sign in to manage Nador Guide</p>
+            {/* <h1 className="text-xl font-bold text-slate-900 mb-2">Admin Login</h1> */}
+            <p className="text-slate-600">Enter your credentials to access the platform.</p>
           </div>
 
 {/*          

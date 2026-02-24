@@ -108,6 +108,36 @@ export const togglePlaceStatus = createAsyncThunk(
   }
 );
 
+export const likePlace = createAsyncThunk(
+  'places/like',
+  async (id: number, { getState, rejectWithValue }) => {
+    try {
+      const state: any = getState();
+      const place = state.places.entities[id];
+      const currentLikes = place?.likes ?? 0;
+      const updatedPlace = await placesApi.likePlace(id, currentLikes);
+      return updatedPlace;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data?.message || 'Failed to like place');
+    }
+  }
+);
+
+export const unlikePlace = createAsyncThunk(
+  'places/unlike',
+  async (id: number, { getState, rejectWithValue }) => {
+    try {
+      const state: any = getState();
+      const place = state.places.entities[id];
+      const currentLikes = place?.likes ?? 0;
+      const updatedPlace = await placesApi.unlikePlace(id, currentLikes);
+      return updatedPlace;
+    } catch (error: any) {
+      return rejectWithValue(error.response?.data?.message || 'Failed to unlike place');
+    }
+  }
+);
+
 // Slice
 const placesSlice = createSlice({
   name: 'places',
@@ -232,6 +262,14 @@ const placesSlice = createSlice({
       .addCase(togglePlaceStatus.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload as string;
+      })
+      // Like place
+      .addCase(likePlace.fulfilled, (state, action) => {
+        state.entities[action.payload.id] = action.payload;
+      })
+      // Unlike place
+      .addCase(unlikePlace.fulfilled, (state, action) => {
+        state.entities[action.payload.id] = action.payload;
       });
   },
 });

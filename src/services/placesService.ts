@@ -51,4 +51,20 @@ export const placesApi = {
     });
     return response.data;
   },
+
+  likePlace: async (id: number | string, currentLikes: number): Promise<Place> => {
+    const response = await api.patch<Place>(`/places/${id}`, {
+      likes: currentLikes + 1,
+      updatedAt: new Date().toISOString(),
+    });
+    return response.data;
+  },
+
+  unlikePlace: async (id: number | string, currentLikes: number): Promise<Place> => {
+    const response = await api.patch<Place>(`/places/${id}`, {
+      likes: Math.max(0, currentLikes - 1),
+      updatedAt: new Date().toISOString(),
+    });
+    return response.data;
+  },
 };

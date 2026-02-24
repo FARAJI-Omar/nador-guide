@@ -38,6 +38,17 @@ export interface Place {
   isActive: boolean;
   createdAt: string;
   updatedAt: string;
+  subtitle?: string;
+  latitude?: number;
+  longitude?: number;
+  fullAddress?: string;
+  tariff?: string;
+  bestVisitTime?: string;
+  parking?: boolean;
+  busInfo?: string;
+  taxiInfo?: string;
+  likes?: number;
+  score?: number;
 }
 
 /**

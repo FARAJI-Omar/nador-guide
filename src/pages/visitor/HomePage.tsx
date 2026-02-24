@@ -1,19 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState, type JSXElementConstructor, type Key, type ReactElement, type ReactNode, type ReactPortal } from "react";
 import { Link } from "react-router-dom";
-import {
-  Waves,
-  UtensilsCrossed,
-  Landmark,
-  TreePine,
-  ShoppingBag,
-  ArrowRight,
-  MapPin,
-  Users,
-  Building2,
-  Coffee,
-  Palette,
-  PartyPopper,
-} from "lucide-react";
+import { ArrowRight, MapPin, Mountain, X } from "lucide-react";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import {
   fetchActivePlaces,
@@ -23,12 +10,12 @@ import {
   fetchCategories,
   selectAllCategories,
 } from "../../features/categories/categoriesSlice";
-import type { Category, Place } from "../../types";
 
 const HomePage = () => {
   const dispatch = useAppDispatch();
   const categoriesFromRedux = useAppSelector(selectAllCategories);
   const places = useAppSelector(selectAllPlaces);
+  const [showVideo, setShowVideo] = useState(false);
 
   useEffect(() => {
     if (categoriesFromRedux.length === 0) {
@@ -37,230 +24,185 @@ const HomePage = () => {
     dispatch(fetchActivePlaces());
   }, [dispatch, categoriesFromRedux.length]);
 
-  // Static icons mapping
-  const iconMap: Record<string, any> = {
-    beaches: Waves,
-    "natural-sites": TreePine,
-    "monuments-heritage": Landmark,
-    "museums-culture": Palette,
-    "shopping-souks": ShoppingBag,
-    restaurants: UtensilsCrossed,
-    "hotels-accommodations": Building2,
-    cafes: Coffee,
-    "leisure-entertainment": PartyPopper,
+  const categoryImages: Record<string, string> = {
+    beaches: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=400&h=300&fit=crop",
+    "museums-culture": "https://images.unsplash.com/photo-1565008576549-57569a49371d?w=400&h=300&fit=crop",
+    "natural-sites": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop",
+    restaurants: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=400&h=300&fit=crop",
+    "museums-culture-alt": "https://images.unsplash.com/photo-1580974852861-c381510bc98a?w=400&h=300&fit=crop",
   };
 
-  const colorMap: Record<string, string> = {
-    beaches: "text-cyan-600",
-    "natural-sites": "text-green-600",
-    "monuments-heritage": "text-amber-600",
-    "museums-culture": "text-purple-600",
-    "shopping-souks": "text-pink-600",
-    restaurants: "text-orange-600",
-    "hotels-accommodations": "text-blue-600",
-    cafes: "text-brown-600",
-    "leisure-entertainment": "text-indigo-600",
-  };
-
-  const categories = categoriesFromRedux.map((cat: Category) => ({
-    ...cat,
-    icon: iconMap[cat.slug] || Waves,
-    color: colorMap[cat.slug] || "text-blue-600",
-  })) as Array<Category & { icon: any; color: string }>;
-
-  const featuredPlaces = places.slice(0, 3);
+  const displayCategories = categoriesFromRedux.slice(0, 5);
 
   return (
-    <div className="w-full space-y-20">
+    <div className="w-full">
       {/* Hero Section */}
-      <section className="relative overflow-hidden rounded-2xl px-4 sm:px-8 py-24 shadow-lg shadow-blue-200/50">
-        {/* Background Image */}
-        <img
-          src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=1200&h=400&fit=crop"
+      <section className="relative h-125 overflow-hidden">
+       <div>
+         <img
+          src="/src/assets/nador-maroc.jpg"
           alt="Nador Beach"
-          className="absolute inset-0 w-full h-full object-cover"
+          className="absolute inset-0 w-full h-full object-cover rounded-2xl"
         />
+       </div>
+        {/* <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/30 to-black/50"></div> */}
         
-        {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-blue-950 via-blue-900/70 to-blue-600/50"></div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-3xl mx-auto text-center">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 tracking-tight">
-            Welcome to Guidino
-          </h1>
-          <p className="text-lg sm:text-xl text-blue-50 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Discover the hidden gems of Nador - from pristine beaches on the
-            Marchica Lagoon to historic sites and authentic Moroccan cuisine.
-          </p>
-          <Link
-            to="/places"
-            className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-lg no-underline text-lg font-semibold hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-          >
-            Explore All Places
-            <ArrowRight className="w-5 h-5" />
-          </Link>
+        <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
+        
+            <div className="max-w-4xl ">
+            <p className="text-sm text-white/90 uppercase tracking-widest mb-4 font-semibold">
+              EXPERIENCE MOROCCO
+            </p>
+            <div className=" text-shadow-lg p-2 rounded-2xl shadow-2xl mx-auto">
+              <h1 className="text-5xl lg:text-6xl font-bold text-white mb-6 ">
+                Nador: Pearl of the <span className="text-blue-400">Mediterranean</span>
+              </h1>
+              <p className="text-lg text-white/90 max-w-2xl mx-auto mb-8">
+                Discover the hidden gem of the North where the azure sea meets the majestic Rif mountains.
+              </p>
+            </div>
+            <div className="flex items-center justify-center gap-4">
+              <Link
+                to="/places"
+                className="bg-blue-600 text-white px-8 py-3 rounded-lg no-underline font-semibold hover:bg-blue-700 transition-colors"
+              >
+                Explore Now
+              </Link>
+              <button
+                onClick={() => setShowVideo(true)}
+                className="bg-transparent text-white px-8 py-3 rounded-lg font-semibold hover:bg-white/10 transition-colors border-2 border-white"
+              >
+                Watch Demo
+              </button>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Categories Section */}
-      <section className="mt-20">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-            Explore by Category
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Find exactly what you're looking for
-          </p>
+      {/* Video Modal */}
+      {showVideo && (
+        <div className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4" onClick={() => setShowVideo(false)}>
+          <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+            <button
+              onClick={() => setShowVideo(false)}
+              className="absolute -top-12 right-0 text-white hover:text-gray-300"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <video
+              controls
+              autoPlay
+              className="w-full rounded-lg"
+              src="/src/assets/Nador is the Hidden Gem Coastal City of Morocco.mp4"
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
+      )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categories.map((category) => {
-            const Icon = category.icon;
-            return (
+      {/* Explore Categories Section */}
+      <section className="py-16 mt-4 rounded-2xl px-4 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-2">Explore Categories</h2>
+              <p className="text-gray-600">Everything you need to plan your perfect stay in Nador.</p>
+            </div>
+            <Link to="/places" className="text-blue-600 font-semibold flex items-center gap-1 hover:gap-2 transition-all no-underline">
+              View all <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {displayCategories.map((category: { id: Key | null | undefined; slug: string | number; name: string | number | bigint | boolean | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | Promise<string | number | bigint | boolean | ReactPortal | ReactElement<unknown, string | JSXElementConstructor<any>> | Iterable<ReactNode> | null | undefined> | null | undefined; }, index: any) => (
               <Link
                 key={category.id}
                 to={`/places?category=${category.slug}`}
-                className="group relative bg-gradient-to-br from-white to-blue-50 p-8 rounded-xl text-center no-underline shadow-md hover:shadow-lg border border-blue-200 hover:border-blue-400 transition-all duration-200 hover:-translate-y-1"
+                className="group relative h-64 rounded-2xl overflow-hidden no-underline shadow-lg hover:shadow-xl transition-shadow"
               >
-                <div className="relative z-10">
-                  <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white mb-4 group-hover:scale-110 transition-transform duration-200 shadow-md">
-                    <Icon className="w-8 h-8" />
-                  </div>
-                  <h3 className="text-lg font-semibold text-slate-900 group-hover:text-blue-600 transition-colors duration-200">
-                    {category.name}
-                  </h3>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
-      </section>
-
-      {/* Featured Places Section */}
-      {featuredPlaces.length > 0 && (
-        <section className="py-12">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-              Top Attractions
-            </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-              Check out the most popular places in Nador
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredPlaces.map((place: Place) => (
-              <Link
-                key={place.id}
-                to={`/places/${place.id}`}
-                className="group relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-all duration-300 no-underline border border-blue-100 hover:border-blue-300"
-              >
-                {place.images && place.images[0] && (
-                  <div className="overflow-hidden h-48 relative">
-                    <img
-                      src={place.images[0]}
-                      alt={place.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    {/* Blue accent badge */}
-                    <div className="absolute top-4 right-4 bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-md">
-                      {place.category.name}
-                    </div>
-                  </div>
-                )}
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-blue-600 transition-colors">
-                    {place.name}
-                  </h3>
-                  <p className="text-slate-600 text-sm line-clamp-2 mb-4">
-                    {place.description}
-                  </p>
-                  {place.address && (
-                    <div className="flex items-start gap-2 text-sm text-slate-500">
-                      <MapPin className="w-4 h-4 flex-shrink-0 mt-0.5" />
-                      <span>{place.address}</span>
-                    </div>
-                  )}
+                <img
+                  src={categoryImages[category.slug] || categoryImages["natural-sites"]}
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="text-white text-xl font-bold">{category.name}</h3>
                 </div>
               </Link>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <Link
-              to="/places"
-              className="inline-flex items-center gap-2 bg-blue-600 text-white px-8 py-4 rounded-lg no-underline font-semibold hover:bg-blue-700 transition-all duration-200 shadow-md hover:shadow-lg hover:-translate-y-0.5"
-            >
-              View All Places
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-        </section>
-      )}
-
-      {/* Why Nador Section */}
-      <section className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 sm:p-12">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-            Why Choose Nador?
-          </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Experience the best of Morocco with Guidino
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {[
-            {
-              icon: Waves,
-              title: "Pristine Beaches",
-              description: "Relax on beautiful beaches overlooking the Marchica Lagoon with crystal clear waters."
-            },
-            {
-              icon: UtensilsCrossed,
-              title: "Authentic Cuisine",
-              description: "Taste authentic Moroccan dishes and fresh Mediterranean seafood at local restaurants."
-            },
-            {
-              icon: Users,
-              title: "Warm Welcome",
-              description: "Experience the hospitality of local people and immerse yourself in the culture."
-            }
-          ].map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-sm border border-gray-100 text-center">
-                <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 mb-4">
-                  <Icon className="w-8 h-8 text-blue-600" />
-                </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-slate-600">
-                  {item.description}
-                </p>
-              </div>
-            );
-          })}
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-12 text-center text-white">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-          Ready to Explore?
-        </h2>
-        <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-          Start discovering the amazing places Nador has to offer right now
-        </p>
-        <Link
-          to="/places"
-          className="inline-flex items-center gap-2 bg-white text-blue-600 px-8 py-4 rounded-lg no-underline text-lg font-semibold hover:bg-blue-50 transition-all duration-200 shadow-lg hover:shadow-xl"
-        >
-          Begin Your Journey
-          <ArrowRight className="w-5 h-5" />
-        </Link>
+      {/* Gateway to Mediterranean Section */}
+      <section className="py-16 px-4">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            {/* Images Grid */}
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-4">
+                <div className="space-y-4">
+                  <img
+                    src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/b0/e8/75/prachtige-boulevard-die.jpg?w=600&h=-1&s=1"
+                    alt="Marchica Lagoon"
+                    className="w-full h-64 object-cover rounded-2xl shadow-lg"
+                  />
+                </div>
+                <div className="space-y-4 pt-12">
+                  <img
+                    src="https://s1.lematin.ma/files/lematin/images/articles/2021/08/1630007093_Gourougou.jpg"
+                    alt="Mountain View"
+                    className="w-full h-64 object-cover rounded-2xl shadow-lg"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Content */}
+            <div>
+              <div className="inline-flex items-center gap-2 text-blue-600 text-sm font-semibold mb-4 bg-blue-50 px-4 py-2 rounded-full">
+                <MapPin className="w-4 h-4" />
+                Must Visit Destination
+              </div>
+              <h2 className="text-4xl font-bold text-gray-900 mb-4">
+                The Gateway to the Mediterranean
+              </h2>
+              <p className="text-gray-600 mb-8 leading-relaxed">
+                Experience the unique harmony between the azure sea and the majestic Rif mountains. 
+                Nador is home to the Marchica lagoon, one of the most important wetlands in the Mediterranean basin.
+              </p>
+
+              <div className="grid grid-cols-2 gap-6 mb-8">
+                <div className="flex items-start gap-3">
+                  <div className="bg-blue-100 p-2 rounded-lg">
+                    <MapPin className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1 text-left">Marchica Lagoon</h4>
+                    <p className="text-sm text-gray-600 text-left">A stunning natural lagoon with diverse marine life</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="bg-blue-100 p-2 rounded-lg">
+                    <Mountain className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-1 text-left">Gourougou Mount</h4>
+                    <p className="text-sm text-gray-600 text-left">Breathtaking panoramic views of the entire region</p>
+                  </div>
+                </div>
+              </div>
+
+              <Link
+                to="/places"
+                className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-colors no-underline"
+              >
+                Learn More About Nador
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   );
