@@ -12,304 +12,183 @@
     },
     {
       "id": 3,
-      "name": "Monuments & Heritage",
-      "slug": "monuments-heritage"
-    },
-    {
-      "id": 4,
       "name": "Museums & Culture",
       "slug": "museums-culture"
     },
     {
-      "id": 5,
+      "id": 4,
       "name": "Shopping & Souks",
       "slug": "shopping-souks"
     },
     {
-      "id": 6,
-      "name": "Restaurants",
-      "slug": "restaurants"
+      "id": 5,
+      "name": "Restaurants & Cafes",
+      "slug": "restaurants-and-cafes"
     },
     {
-      "id": 7,
+      "id": 6,
       "name": "Hotels & Accommodations",
       "slug": "hotels-accommodations"
     },
     {
-      "id": 8,
-      "name": "coffee shop",
-      "slug": "coffee"
-    },
-    {
-      "id": 9,
+      "id": 7,
       "name": "Leisure & Entertainment",
       "slug": "leisure-entertainment"
     }
   ],
   "places": [
     {
-      "name": "Gary Boyle",
+      "name": "Marchica",
       "category": {
-        "id": 2,
-        "name": "Natural Sites",
-        "slug": "natural-sites"
+        "id": 1,
+        "name": "Beaches",
+        "slug": "beaches"
       },
-      "description": "Sunt nobis excepturi",
+      "description": "Popular beach along the Marchica lagoon, known for calm waters, scenic views, and walking paths. Ideal for relaxation and swimming.",
       "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+        "https://lematin.ma/lematin/uploads/images/2023/11/07/263677.jpeg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmT-pndODVSC4wQevJ2CGGiQI9JoJGRKF9cw&s",
+        "https://cf.bstatic.com/xdata/images/hotel/max1024x768/406069985.jpg?k=10ed46db541a80fb6fca2538305c696b88eea0d5524c9c4db455135e2a392db3&o="
       ],
-      "price": "613",
-      "address": "Dolores sit voluptat",
-      "latitude": 35.1813009230029,
-      "longitude": -2.9907531727803875,
+      "address": "Corniche, Nador 62000, Morocco",
+      "latitude": 35.15743864116224,
+      "longitude": -2.906158447003691,
       "parking": false,
       "isActive": true,
-      "updatedAt": "2026-02-24T01:29:31.633Z",
-      "id": 2,
+      "updatedAt": "2026-02-24T21:31:29.593Z",
+      "id": 1,
       "likes": 1
     },
     {
-      "name": "Gary Boyle",
+      "name": "Mouhandis Beach",
       "category": {
-        "id": 2,
-        "name": "Natural Sites",
-        "slug": "natural-sites"
+        "id": 1,
+        "name": "Beaches",
+        "slug": "beaches"
       },
-      "description": "Sunt nobis excepturi",
+      "description": "Quiet beach near Kariat Arkmane with crystal-clear water, perfect for swimming and relaxation.",
       "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEMGQDSTz0Nyb4IKYjHX3ZuzpPzUYpHO1y_g&s",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSe0HM0js3CQe8Dyx4EB_84vscvmP_dES_02g&s",
+        "https://bewilderedinmorocco.com/wp-content/uploads/2025/01/nador1.jpg"
       ],
-      "price": "613",
-      "address": "Dolores sit voluptat",
-      "latitude": 35.1813009230029,
-      "longitude": -2.9907531727803875,
+      "address": "Kariat Arkmane, near Nador",
+      "latitude": 35.106540402478345,
+      "longitude": -2.735389707377181,
       "parking": false,
       "isActive": true,
-      "updatedAt": "2026-02-24T01:32:43.336Z",
+      "createdAt": "2026-02-24T21:20:30.046Z",
+      "updatedAt": "2026-02-24T21:31:22.803Z",
+      "id": 2,
+      "likes": 0
+    },
+    {
+      "name": "Corniche Bni Ansar",
+      "category": {
+        "id": 1,
+        "name": "Beaches",
+        "slug": "beaches"
+      },
+      "description": "Coastal promenade with sea views, ideal for walking, relaxing, and enjoying sunsets.",
+      "images": [
+        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1b/70/7f/ac/corniche-beni-ansar.jpg?w=800&h=800&s=1",
+        "https://www.baytroom.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdc8fzaslc%2Fimage%2Fupload%2Fv1758365352%2Fnador_cgmevw.webp&w=3840&q=75"
+      ],
+      "address": "Beni Ensar, Nador",
+      "latitude": 35.265131658526194,
+      "longitude": -2.9366454994305977,
+      "parking": false,
+      "isActive": true,
+      "createdAt": "2026-02-24T21:22:02.863Z",
+      "updatedAt": "2026-02-24T21:31:25.294Z",
       "id": 3,
-      "likes": 2
+      "likes": 0
     },
     {
-      "name": "Gary Boyle",
+      "name": "Mount Gourougou",
       "category": {
         "id": 2,
         "name": "Natural Sites",
         "slug": "natural-sites"
       },
-      "description": "Sunt nobis excepturi",
+      "description": "Mountain offering panoramic views of Nador, Melilla, and the Mediterranean Sea. Great for hiking and photography.",
       "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0c/ee/d0/be/monte-gurugu.jpg?w=1200&h=-1&s=1",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl7I8o23OE-T5GIr_dy4-N_-ETLcaa8Yge9Q&s",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Thazuda_Castle_and_Mosque_Arrahmane_in_Gourougou_mountain.jpg/500px-Thazuda_Castle_and_Mosque_Arrahmane_in_Gourougou_mountain.jpg"
       ],
-      "price": "613",
-      "address": "Dolores sit voluptat",
-      "latitude": 35.1813009230029,
-      "longitude": -2.9907531727803875,
+      "address": "Gourougou Mountain, Nador",
+      "latitude": 35.21606094472559,
+      "longitude": -2.9974479664815594,
       "parking": false,
       "isActive": true,
-      "updatedAt": "2026-02-24T01:34:26.190Z",
+      "createdAt": "2026-02-24T21:23:29.900Z",
+      "updatedAt": "2026-02-24T21:31:27.973Z",
       "id": 4,
-      "likes": 3
+      "likes": 1
     },
     {
-      "name": "Gary Boyle",
+      "name": "Atalayoun Resort",
       "category": {
         "id": 3,
-        "name": "Natural Sites",
-        "slug": "natural-sites"
+        "name": "Museums & Culture",
+        "slug": "museums-culture"
       },
-      "description": "Sunt nobis excepturi",
+      "description": "Cultural and touristic zone built on a historic peninsula with architecture, views, and heritage elements.",
       "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
+        "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/b5/3b/f4/nice-golf-resort.jpg?w=1200&h=-1&s=1",
+        "https://frmg.ma/wp-content/uploads/2024/02/Atalayoun-Marchica-Golf-Resort-Nador-5-600x400.jpg",
+        "https://en.7news.ma/wp-content/uploads/2025/05/Cite-Atalayoun-Image-3.jpg"
       ],
-      "price": "613",
-      "address": "Dolores sit voluptat",
-      "latitude": 35.1813009230029,
-      "longitude": -2.9907531727803875,
-      "parking": false,
-      "isActive": false,
-      "updatedAt": "2026-02-23T23:53:20.144Z",
-      "id": 5,
-      "likes": 0
-    },
-    {
-      "name": "Gary Boyle",
-      "category": {
-        "id": 2,
-        "name": "Natural Sites",
-        "slug": "natural-sites"
-      },
-      "description": "Sunt nobis excepturi",
-      "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
-      ],
-      "price": "613",
-      "address": "Dolores sit voluptat",
-      "latitude": 35.1813009230029,
-      "longitude": -2.9907531727803875,
-      "parking": false,
-      "isActive": false,
-      "updatedAt": "2026-02-24T00:15:34.427Z",
-      "id": 6,
-      "likes": 0
-    },
-    {
-      "name": "Gary Boyle",
-      "category": {
-        "id": 6,
-        "name": "Leisure & Entertainment",
-        "slug": "leisure-entertainment"
-      },
-      "description": "Sunt nobis excepturi",
-      "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
-      ],
-      "price": "613",
-      "address": "Dolores sit voluptat",
-      "latitude": 35.1813009230029,
-      "longitude": -2.9907531727803875,
+      "address": "Atalayoun, Nador",
+      "latitude": 35.21914625598438,
+      "longitude": -2.927032462321222,
       "parking": false,
       "isActive": true,
-      "updatedAt": "2026-02-23T23:00:29.670Z",
+      "createdAt": "2026-02-24T21:25:19.382Z",
+      "updatedAt": "2026-02-24T21:25:19.382Z",
+      "id": 5
+    },
+    {
+      "name": "Central Park Al Matar",
+      "category": {
+        "id": 4,
+        "name": "Shopping & Souks",
+        "slug": "shopping-souks"
+      },
+      "description": "Area surrounded by shops and commercial activities with local products.",
+      "images": [
+        "https://content.avito.ma/classifieds/images/10138412904?t=images"
+      ],
+      "address": "Bd Grand Rif, Nador",
+      "latitude": 35.1079447247664,
+      "longitude": -2.9269638040568684,
+      "parking": false,
+      "isActive": true,
+      "createdAt": "2026-02-24T21:28:07.156Z",
+      "updatedAt": "2026-02-24T21:28:07.156Z",
+      "id": 6
+    },
+    {
+      "name": "Souk Oulad Mimoun",
+      "category": {
+        "id": 4,
+        "name": "Shopping & Souks",
+        "slug": "shopping-souks"
+      },
+      "description": "Popular market where visitors can find clothes, accessories, and local goods at affordable prices.",
+      "images": [
+        "https://marocmama.com/wp-content/uploads/2021/05/24.png.webp",
+        "https://img1.boatcdn.com/review_img/bac01508f0498e7611f142443f2e58ce",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlywhF07G2jlAwuMrzZdV9jAODeFBRs2vObQ&s"
+      ],
+      "address": "oulad mimoun, nador",
+      "parking": false,
+      "isActive": true,
+      "createdAt": "2026-02-24T21:30:57.005Z",
+      "updatedAt": "2026-02-24T21:31:32.917Z",
       "id": 7,
-      "likes": 0
-    },
-    {
-      "name": "Gary Boyle",
-      "category": {
-        "id": 7,
-        "name": "Leisure & Entertainment",
-        "slug": "leisure-entertainment"
-      },
-      "description": "Sunt nobis excepturi",
-      "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
-      ],
-      "price": "613",
-      "address": "Dolores sit voluptat",
-      "latitude": 35.1813009230029,
-      "longitude": -2.9907531727803875,
-      "parking": false,
-      "isActive": true,
-      "updatedAt": "2026-02-23T23:00:29.670Z",
-      "id": 8,
-      "likes": 0
-    },
-    {
-      "name": "Gary Boyle",
-      "category": {
-        "id": 11,
-        "name": "Leisure & Entertainment",
-        "slug": "leisure-entertainment"
-      },
-      "description": "Sunt nobis excepturi",
-      "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
-      ],
-      "price": "613",
-      "address": "Dolores sit voluptat",
-      "latitude": 35.1813009230029,
-      "longitude": -2.9907531727803875,
-      "parking": false,
-      "isActive": true,
-      "updatedAt": "2026-02-23T23:00:29.670Z",
-      "id": 9,
-      "likes": 0
-    },
-    {
-      "name": "Gary Boyle",
-      "category": {
-        "id": 12,
-        "name": "Leisure & Entertainment",
-        "slug": "leisure-entertainment"
-      },
-      "description": "Sunt nobis excepturi",
-      "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLfyFOAlLTE_1nDLhxXXnhYwt_nh9BtYRk_k7CJqMkZQ&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKcl5EBd23OVbU4KPFp2dYBL9i9B9HaJOKV48V3gp8&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqI6bMqqwiwUXmkSSRmcvQWoJhD-MKo99RVg&s"
-      ],
-      "price": "613",
-      "address": "Dolores sit voluptat",
-      "latitude": 35.1813009230029,
-      "longitude": -2.9907531727803875,
-      "parking": false,
-      "isActive": true,
-      "updatedAt": "2026-02-23T23:00:29.670Z",
-      "id": 10,
-      "likes": 0
-    },
-    {
-      "name": "youcode",
-      "category": {
-        "id": 9,
-        "name": "Leisure & Entertainment",
-        "slug": "leisure-entertainment"
-      },
-      "description": "youcode um6p",
-      "images": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStZujxrSj_6GmuPC3AFnWJrR0JBXSqjV4_Fw&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvOcb6gapRF3o5_tZEgqAwHRTiSclkcg3dunh4Vj9Q&s",
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQg5H_smZ9DsMpSboLS2fM_JmR1jAOLzy__zSuy3olW&s"
-      ],
-      "address": "nador chabiba",
-      "latitude": 35.172948869152776,
-      "longitude": -2.933315276968642,
-      "bestVisitTime": "09:00 - 17:30",
-      "parking": false,
-      "isActive": true,
-      "createdAt": "2026-02-23T22:57:41.375Z",
-      "updatedAt": "2026-02-23T22:57:41.375Z",
-      "id": 12,
-      "likes": 0
-    },
-    {
-      "name": "Naomi Bauer",
-      "category": {
-        "id": 2,
-        "name": "Natural Sites",
-        "slug": "natural-sites"
-      },
-      "description": "In velit nihil ad s",
-      "images": [
-        "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80"
-      ],
-      "subtitle": "Laborum sint at volu",
-      "address": "Dolores sed eius rep",
-      "latitude": 35.16348029785281,
-      "longitude": -2.913677214528434,
-      "tariff": "Id veritatis cupidit",
-      "bestVisitTime": "Ipsum dolor impedit",
-      "busInfo": "Deleniti quae dolore",
-      "parking": true,
-      "isActive": true,
-      "createdAt": "2026-02-24T01:37:21.239Z",
-      "updatedAt": "2026-02-24T01:37:21.239Z",
-      "id": 13
+      "likes": 1
     }
   ]
 }
